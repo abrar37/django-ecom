@@ -1,0 +1,1 @@
+This is the Shop Static file in Shop Static Dir
