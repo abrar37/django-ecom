@@ -5,8 +5,11 @@ from django.http import HttpResponse
 def index(request):
     return render(request, 'shop/index.html')
 
+def about(request):
+    return render(request, 'shop/about.html')
+
 def search_product(request):
-    return HttpResponse("This is Search Page")
+    return render(request, 'shop/search.html')
 
 def single_product(request):
     return HttpResponse("This is single product Page")
