@@ -1,0 +1,96 @@
+{% extends 'shop/basic.html' %}
+
+{% block title %}Shop - Home {%endblock%}
+
+{% block body %}
+
+<div class="container mt-3">
+    <nav aria-label="breadcrumb">
+        <ol class="breadcrumb">
+            <li class="breadcrumb-item"><a href="#">Shop</a></li>
+            <li class="breadcrumb-item"><a href="#">{{product.4.category}}</a></li>
+            <li class="breadcrumb-item active" aria-current="page">{{product.4.subcategory}}</li>
+        </ol>
+    </nav>
+</div>
+
+<div class="container text-center mt-5">
+    <div class="row">
+        {% for i in product|slice:"1:"%}
+        <div class="col">
+            <div class="card" style="width: 18rem;">
+                <img src="/media/{{i.image}}" class="card-img-top"
+                    style="height: 300px; object-fit: contain; padding: 30px;" alt="product image">
+                <div class="card-body">
+                    <h5 class="card-title">{{i.Product_name}}</h5>
+                    <p class="card-text">{{i.description}}</p>
+                    <a href="" class="btn btn-primary cart" id="btn-i.id">Add to Cart</a>
+                </div>
+            </div>
+        </div>
+        {% endfor %}
+        <!-- <div class="col">
+            <div class="card" style="width: 18rem;">
+                <img src="https://source.unsplash.com/250x200/?product,laptop" class="card-img-top" alt="product image">
+                <div class="card-body">
+                    <h5 class="card-title">Card title</h5>
+                    <p class="card-text">Some quick example text to build on the card title and make up
+                        the bulk of the card's content.</p>
+                    <a href="" class="btn btn-primary">Add to Cart</a>
+                </div>
+            </div>
+        </div>
+        <div class="col">
+            <div class="card" style="width: 18rem;">
+                <img src="https://source.unsplash.com/250x200/?product,laptop" class="card-img-top" alt="product image">
+                <div class="card-body">
+                    <h5 class="card-title">Card title</h5>
+                    <p class="card-text">Some quick example text to build on the card title and make up the
+                        bulk of the card's content.</p>
+                    <a href="" class="btn btn-primary">Add to Cart</a>
+                </div>
+            </div>
+        </div>
+        <div class="col">
+            <div class="card" style="width: 18rem;">
+                <img src="https://source.unsplash.com/250x200/?product,laptop" class="card-img-top" alt="product image">
+                <div class="card-body">
+                    <h5 class="card-title">Card title</h5>
+                    <p class="card-text">Some quick example text to build on the card title and make up
+                        the bulk of the card's content.</p>
+                    <a href="" class="btn btn-primary">Add to Cart</a>
+                </div>
+            </div>
+        </div> -->
+    </div>
+</div>
+{%endblock%}
+
+{% block js %}
+<!-- <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js"></script> -->
+<script src="//ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js"></script>
+<script>
+    console.log("Working");
+    if (localStorage.getItem('cart') == null) {
+        var cart = {};
+    }
+    else {
+        cart = JSON.parse(localStorage.getItem('cart'));
+    }
+
+    // $('.cart').click(function () {
+    //     console.log('Clicked');
+    //     // var idstr = this.id.toString();
+    //     // console.log(idstr);
+
+    // });
+
+    document.querySelector('.cart').addEventListener('click', function () {
+        console.log('Clicked');
+        // var idstr = this.id.toString();
+        // console.log(idstr);
+    });
+
+</script>
+
+{% endblock %}
