@@ -8,10 +8,80 @@
     <nav aria-label="breadcrumb">
         <ol class="breadcrumb">
             <li class="breadcrumb-item"><a href="#">Shop</a></li>
-            <li class="breadcrumb-item"><a href="#">{{product.4.category}}</a></li>
-            <li class="breadcrumb-item active" aria-current="page">{{product.4.subcategory}}</li>
+            <li class="breadcrumb-item"><a href="#">{{products.0.category}}</a></li>
+            <li class="breadcrumb-item active" aria-current="page">{{products.4.subcategory}}</li>
         </ol>
     </nav>
 </div>
+
+
+
+<div class="container">
+    <div id="carouselExampleAutoplaying" class="carousel slide" data-bs-ride="carousel">
+        <div class="carousel-inner">
+            <div class="carousel-item active">
+                <div class="row justify-content-center">
+                    {% for product in products|slice:":4" %}
+                    <div class="col-3 my-3">
+                        <div class="card" style="width: 18rem;">
+                            <img src="/media/{{product.image}}" class="card-img-top" style="height: 350px; object-fit: cover;"   alt="product image">
+                            <div class="card-body">
+                                <h5 class="card-title">{{product.Product_name}}</h5>
+                                <p class="card-text">{{product.description}}</p>
+                                <a href="" class="btn btn-primary">Add to Cart</a>
+                            </div>
+                        </div>
+                    </div>
+                    {% endfor %}
+                </div>
+            </div>
+            <div class="carousel-item">
+                <div class="row justify-content-center">
+                    {% for product in products|slice:"4:8" %}
+                    <div class="col-3 my-3">
+                        <div class="card" style="width: 18rem;">
+                            <img src="/media/{{product.image}}" class="card-img-top" style="height: 350px; object-fit: cover;" alt="product image">
+                            <div class="card-body">
+                                <h5 class="card-title">{{product.Product_name}}</h5>
+                                <p class="card-text">{{product.description}}</p>
+                                <a href="" class="btn btn-primary">Add to Cart</a>
+                            </div>
+                        </div>
+                    </div>
+                    {% endfor %}
+                </div>
+            </div>
+            <div class="carousel-item">
+                <div class="row justify-content-left">
+                    {% for product in products|slice:"8:" %}
+                    <div class="col-3 my-3">
+                        <div class="card" style="width: 18rem;">
+                            <img src="/media/{{product.image}}" class="card-img-top" style="height: 350px; object-fit: cover;"  alt="product image">
+                            <div class="card-body">
+                                <h5 class="card-title">{{product.Product_name}}</h5>
+                                <p class="card-text">{{product.description}}</p>
+                                <a href="" class="btn btn-primary">Add to Cart</a>
+                            </div>
+                        </div>
+                    </div>
+                    {% endfor %}
+                </div>
+            </div>
+        </div>
+        <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleAutoplaying"
+            data-bs-slide="prev">
+            <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+            <span class="visually-hidden">Previous</span>
+        </button>
+        <button class="carousel-control-next" type="button" data-bs-target="#carouselExampleAutoplaying"
+            data-bs-slide="next">
+            <span class="carousel-control-next-icon" aria-hidden="true"></span>
+            <span class="visually-hidden">Next</span>
+        </button>
+    </div>
+</div>
+
+
+
 
 {%endblock%}
